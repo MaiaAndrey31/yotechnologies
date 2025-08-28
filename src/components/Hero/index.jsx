@@ -55,17 +55,6 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Text
-              fontSize="lg"
-              fontWeight="semibold"
-              color="brand.400"
-              mb={2}
-              letterSpacing="wider"
-              textTransform="uppercase"
-            >
-              Transformando Negócios com IA
-            </Text>
-            
             <Heading
               as="h1"
               size={headingSize}
@@ -75,14 +64,11 @@ const Hero = () => {
               maxW="3xl"
               mx={{ base: 'auto', lg: 0 }}
             >
-              Automação inteligente para{' '}
-              <Box
-                as="span"
-                bgGradient="linear(to-r, #007bff, #6a11cb)"
-                bgClip="text"
-              >
-                acelerar seus resultados
+              
+              <Box as="span" bgGradient="linear(to-r, #007bff, #6a11cb)" bgClip="text">
+              Resultados reais com IA
               </Box>
+               : mais eficiência, mais vendas, menos custos
             </Heading>
 
             <Text
@@ -93,8 +79,7 @@ const Hero = () => {
               mx={{ base: 'auto', lg: 0 }}
               lineHeight="tall"
             >
-              Na Yo Technologies criamos agentes de IA sob medida para otimizar atendimentos, 
-              aumentar vendas e transformar processos empresariais.
+              Criamos automações e agentes de IA que reduzem custos, aumentam suas vendas e otimizam processos. O futuro da sua empresa começa aqui.
             </Text>
 
             <Flex
@@ -115,25 +100,7 @@ const Hero = () => {
                   }}
                   transition="all 0.3s"
                 >
-                  Fale com a gente
-                </Button>
-              </ScrollLink>
-              
-              <ScrollLink to="servicos" smooth={true} duration={500} offset={-80}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  px={8}
-                  py={6}
-                  fontSize="lg"
-                  borderWidth={2}
-                  _hover={{
-                    bg: 'rgba(255, 255, 255, 0.1)',
-                    transform: 'translateY(-2px)',
-                  }}
-                  transition="all 0.3s"
-                >
-                  Nossos Serviços
+                  Agende uma reunião gratuita
                 </Button>
               </ScrollLink>
             </Flex>

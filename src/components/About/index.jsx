@@ -1,4 +1,5 @@
-import { Box, Container, Flex, Heading, Text, VStack, SimpleGrid, Icon, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text, VStack, SimpleGrid, Icon, useBreakpointValue, Button } from '@chakra-ui/react';
+import { Link as ScrollLink } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { FaRobot, FaChartLine, FaLightbulb } from 'react-icons/fa';
 
@@ -48,18 +49,18 @@ const About = () => {
   const features = [
     {
       icon: FaRobot,
-      title: 'Inovação em IA',
-      description: 'Soluções de inteligência artificial personalizadas para atender às necessidades específicas do seu negócio.'
+      title: 'Foco no seu Resultado',
+      description: 'Não vendemos tecnologia, vendemos resultados. Nossas soluções são 100% personalizadas para resolver os desafios reais do seu negócio e impulsionar seus KPIs.'
     },
     {
       icon: FaChartLine,
-      title: 'Resultados Comprovados',
-      description: 'Métricas que comprovam o aumento de eficiência e redução de custos para nossos clientes.'
+      title: 'Credibilidade e Experiência',
+      description: 'Com um time de especialistas e cases de sucesso, garantimos a implementação de soluções de IA que funcionam e trazem retorno sobre o investimento.'
     },
     {
       icon: FaLightbulb,
-      title: 'Soluções Inteligentes',
-      description: 'Automações que aprendem e evoluem com o tempo, garantindo resultados cada vez melhores.'
+      title: 'Parceria Estratégica',
+      description: 'Atuamos como um parceiro estratégico, entendendo suas metas para aplicar a tecnologia certa, na hora certa. Seu sucesso é o nosso sucesso.'
     }
   ];
 
@@ -78,16 +79,15 @@ const About = () => {
             Sobre Nós
           </Text>
           <Heading as="h2" size={headingSize} mb={6} fontWeight="bold">
-            Transformando ideias em{' '}
+            Do potencial da IA aos{' '}
             <Box as="span" bgGradient="linear(to-r, #007bff, #6a11cb)" bgClip="text">
-              soluções reais
+              resultados que importam
             </Box>
           </Heading>
           <Box maxW="3xl" mx="auto">
             <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.400">
-              Na Yo Technologies, acreditamos que a tecnologia deve ser uma aliada no crescimento dos negócios. 
-              Nossa missão é descomplicar a transformação digital, oferecendo soluções práticas e inovadoras 
-              que impulsionam resultados reais para empresas de todos os portes.
+              Na Yo Technologies, tornamos a IA simples e acessível para o seu negócio. 
+              Aplicamos tecnologia onde mais importa: mais eficiência, menos custos e crescimento mensurável.
             </Text>
           </Box>
         </Box>
@@ -109,6 +109,14 @@ const About = () => {
             </motion.div>
           ))}
         </SimpleGrid>
+
+        <Box textAlign="center" mt={20}>
+          <ScrollLink to="contato" smooth={true} duration={500} offset={-80}>
+            <Button size="lg" variant="primary">
+              Descubra como aplicar IA no seu negócio
+            </Button>
+          </ScrollLink>
+        </Box>
       </Container>
 
       {/* Decorative elements */}

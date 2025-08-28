@@ -19,29 +19,19 @@ const Footer = () => {
 
   const footerLinks = [
     {
-      title: 'Empresa',
+      title: 'Navegação',
       links: [
         { label: 'Sobre Nós', url: '#sobre' },
         { label: 'Serviços', url: '#servicos' },
         { label: 'Cases', url: '#cases' },
-        { label: 'Blog', url: '/blog' },
-      ],
-    },
-    {
-      title: 'Recursos',
-      links: [
-        { label: 'Documentação', url: '/docs' },
-        { label: 'Tutoriais', url: '/tutoriais' },
-        { label: 'API', url: '/api' },
-        { label: 'Status', url: '/status' },
+        { label: 'Contato', url: '#contato' },
       ],
     },
     {
       title: 'Legal',
       links: [
-        { label: 'Política de Privacidade', url: '/privacidade' },
-        { label: 'Termos de Uso', url: '/termos' },
-        { label: 'Cookies', url: '/cookies' },
+        { label: 'Política de Privacidade', url: '/politica-privacidade' },
+        { label: 'Termos de Serviço', url: '/termos-servico' },
       ],
     },
   ];
@@ -79,7 +69,7 @@ const Footer = () => {
               </Box>
             </Box>
             <Text color={textColor} mb={6}>
-              Transformando negócios com soluções inovadoras em Inteligência Artificial e automação.
+              Yo Technologies — Inteligência Artificial aplicada para gerar resultados reais.
             </Text>
             <HStack spacing={4}>
               {socialLinks.map((social, index) => (

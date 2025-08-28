@@ -87,34 +87,34 @@ const Services = () => {
 
   const services = [
     {
-      icon: FaRobot,
+      icon: FaHeadset,
       title: 'Agentes de IA para Atendimento',
-      description: 'Chatbots inteligentes que atendem seus clientes 24/7 com respostas precisas e naturais, reduzindo custos e melhorando a experiência do cliente.'
+      description: 'Bots inteligentes que operam 24/7, reduzem seus custos operacionais e elevam a satisfação dos seus clientes a um novo patamar.'
     },
     {
       icon: FaChartLine,
       title: 'Automações de Vendas',
-      description: 'Soluções personalizadas para automação de funil de vendas, prospecção qualificada e nutrição de leads, aumentando sua taxa de conversão.'
+      description: 'Crie funis de vendas inteligentes que qualificam e nutrem leads automaticamente, convertendo mais e melhor com menos esforço.'
     },
     {
       icon: FaCogs,
       title: 'Integrações Personalizadas',
-      description: 'Conectamos seus sistemas e ferramentas para criar fluxos de trabalho automatizados que otimizam processos internos e melhoram a produtividade.'
+      description: 'Conectamos suas ferramentas e sistemas, criando fluxos de trabalho automáticos que eliminam tarefas repetitivas e aumentam a produtividade.'
     },
     {
-      icon: FaHeadset,
+      icon: FaBrain,
       title: 'Suporte Inteligente',
-      description: 'Sistemas de atendimento ao cliente aprimorados por IA que aprendem com cada interação para fornecer respostas cada vez mais precisas.'
+      description: 'Nossa IA aprende com cada interação para oferecer um suporte ao cliente que não apenas resolve, mas também antecipa problemas.'
     },
     {
       icon: FaShieldAlt,
       title: 'Segurança e Compliance',
-      description: 'Implementamos as melhores práticas de segurança para garantir que seus dados e os de seus clientes estejam sempre protegidos.'
+      description: 'Garantimos proteção total para seus dados e os de seus clientes com as mais rigorosas práticas de segurança e conformidade.'
     },
     {
-      icon: FaBrain,
+      icon: FaRobot,
       title: 'Machine Learning Avançado',
-      description: 'Modelos preditivos e análises avançadas para extrair insights valiosos dos seus dados e antecipar tendências de mercado.'
+      description: 'Transforme dados brutos em insights preditivos. Antecipe tendências de mercado e tome decisões mais inteligentes com nossos modelos de ML.'
     }
   ];
 
@@ -133,15 +133,15 @@ const Services = () => {
             Nossos Serviços
           </Text>
           <Heading as="h2" size={headingSize} mb={6} fontWeight="bold">
-            Soluções em IA para impulsionar seu{' '}
-            <Box as="span" bgGradient="linear(to-r, #007bff, #6a11cb" bgClip="text">
-              negócio
+            Como a Inteligência Artificial pode{' '}
+            <Box as="span" bgGradient="linear(to-r, #007bff, #6a11cb)" bgClip="text">
+              acelerar seu negócio
             </Box>
           </Heading>
           <Box maxW="3xl" mx="auto">
             <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.400">
-              Desenvolvemos soluções personalizadas de inteligência artificial que se adaptam às necessidades específicas do seu negócio, 
-              garantindo resultados mensuráveis e um retorno sobre o investimento claro.
+              Oferecemos um arsenal de soluções de IA prontas para resolver os maiores desafios da sua empresa. 
+              Descubra como nossa tecnologia pode trabalhar para você.
             </Text>
           </Box>
         </Box>

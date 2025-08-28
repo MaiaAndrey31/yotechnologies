@@ -1,4 +1,5 @@
-import { Box, Container, Flex, Heading, Text, SimpleGrid, VStack, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text, SimpleGrid, VStack, useBreakpointValue, Button } from '@chakra-ui/react';
+import { Link as ScrollLink } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { FaChartLine, FaUsers, FaDollarSign } from 'react-icons/fa';
 
@@ -88,6 +89,14 @@ const CaseStudyCard = ({ title, description, impact, index }) => {
             </Text>
             <Text color="gray.400">{impact}</Text>
           </Box>
+          <Text color="gray.300" mt={4}>
+            Quer o mesmo resultado? Fale com a gente.
+          </Text>
+          <Box mt={2}>
+            <ScrollLink to="contato" smooth={true} duration={500} offset={-80}>
+              <Button size="sm" variant="primary">Fale com a gente</Button>
+            </ScrollLink>
+          </Box>
         </VStack>
       </Box>
     </motion.div>
@@ -105,14 +114,14 @@ const Cases = () => {
       label: 'Aumento na eficiência de atendimento',
     },
     {
-      icon: FaUsers,
-      value: '24/7',
-      label: 'Atendimento ininterrupto',
-    },
-    {
       icon: FaDollarSign,
       value: '40%',
       label: 'Redução de custos operacionais',
+    },
+    {
+      icon: FaUsers,
+      value: '24/7',
+      label: 'Atendimento ininterrupto',
     },
   ];
 
@@ -159,12 +168,12 @@ const Cases = () => {
           </Heading>
           <Box maxW="3xl" mx="auto">
             <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.400">
-              Veja como nossas soluções em IA estão transformando negócios e gerando resultados mensuráveis.
+              Números que importam para o seu crescimento. Resultados reais, entregues com Inteligência Artificial aplicada ao seu negócio.
             </Text>
           </Box>
         </Box>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mb={20}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mb={10}>
           {stats.map((stat, index) => (
             <StatCard
               key={index}
@@ -175,6 +184,14 @@ const Cases = () => {
             />
           ))}
         </SimpleGrid>
+
+        <Box textAlign="center" mb={20}>
+          <ScrollLink to="contato" smooth={true} duration={500} offset={-80}>
+            <Button size="lg" variant="primary">
+              Agende uma demonstração e veja na prática
+            </Button>
+          </ScrollLink>
+        </Box>
 
         <Box>
           <Heading as="h3" size="xl" mb={10} textAlign="center">

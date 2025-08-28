@@ -121,14 +121,14 @@ const Contact = () => {
             Contato
           </Text>
           <Heading as="h2" size={headingSize} mb={6} fontWeight="bold">
-            Vamos conversar sobre seu{' '}
+            Vamos conversar sobre o{' '}
             <Box as="span" bgGradient="linear(to-r, #007bff, #6a11cb)" bgClip="text">
-              projeto
+              futuro do seu negócio com IA?
             </Box>
           </Heading>
           <Box maxW="3xl" mx="auto">
             <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.400">
-              Entre em contato para saber como nossas soluções em IA podem transformar seu negócio.
+              Preencha o formulário e receba um diagnóstico gratuito de oportunidades com IA para sua empresa.
             </Text>
           </Box>
         </Box>
@@ -210,7 +210,7 @@ const Contact = () => {
                 }}
                 transition="all 0.3s"
               >
-                Quero transformar meu negócio com IA
+                Agende sua reunião agora
               </Button>
             </VStack>
           </Box>
