@@ -26,7 +26,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Helmet>
-        <title>Yo Technologies - Automação Inteligente</title>
+        <title>Yo Technologies - Automações Inteligentes</title>
         <meta name="description" content="Soluções em IA e automação para otimizar seus negócios" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
