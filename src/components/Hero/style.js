@@ -10,7 +10,7 @@ export const HeroSection = styled(Box)`
   overflow: hidden;
   padding-top: 80px;
   background: linear-gradient(135deg, rgba(13, 17, 23, 0.7) 0%, rgba(13, 17, 23, 0.75) 100%),
-    url('https://images.unsplash.com/photo-1655720828018-edd2daec9349?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    url('https://images.pexels.com/photos/17483867/pexels-photo-17483867.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
