@@ -66,3 +66,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.subtitle{
+  color: #efefef;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}

@@ -1,83 +1,75 @@
 import { Box, Container, Flex, Heading, Text, SimpleGrid, Icon, VStack, useBreakpointValue } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import { FaRobot, FaChartLine, FaCogs, FaHeadset, FaShieldAlt, FaBrain } from 'react-icons/fa';
 
 const ServiceCard = ({ icon, title, description, index }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <Box
+      bg="rgba(255, 255, 255, 0.03)"
+      p={8}
+      borderRadius="lg"
+      border="1px solid"
+      borderColor="rgba(255, 255, 255, 0.1)"
+      height="100%"
+      position="relative"
+      overflow="hidden"
+      _before={{
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '4px',
+        bgGradient: 'linear(to-r, #007bff, #6a11cb)',
+        opacity: 0,
+        transition: 'opacity 0.3s ease',
+      }}
+      _hover={{
+        borderColor: 'brand.500',
+        transform: 'translateY(-5px)',
+        boxShadow: '0 10px 25px -5px rgba(0, 123, 255, 0.2)',
+        '&:before': {
+          opacity: 1,
+        },
+      }}
+      transition="all 0.3s ease"
     >
-      <Box
-        bg="rgba(255, 255, 255, 0.03)"
-        p={8}
-        borderRadius="lg"
-        border="1px solid"
-        borderColor="rgba(255, 255, 255, 0.1)"
-        height="100%"
-        position="relative"
-        overflow="hidden"
-        _before={{
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '4px',
-          bgGradient: 'linear(to-r, #007bff, #6a11cb)',
-          opacity: 0,
-          transition: 'opacity 0.3s ease',
-        }}
-        _hover={{
-          borderColor: 'brand.500',
-          transform: 'translateY(-5px)',
-          boxShadow: '0 10px 25px -5px rgba(0, 123, 255, 0.2)',
-          '&:before': {
-            opacity: 1,
-          },
-        }}
-        transition="all 0.3s ease"
-      >
-        <VStack spacing={6} align="flex-start" h="100%">
-          <Box
-            p={3}
-            bgGradient="linear(to-r, #007bff, #6a11cb)"
-            color="white"
-            borderRadius="lg"
-            display="inline-flex"
-          >
-            <Icon as={icon} boxSize={6} />
-          </Box>
-          <VStack spacing={4} align="flex-start" flex={1}>
-            <Heading as="h3" size="lg" color="white">
-              {title}
-            </Heading>
-            <Text color="gray.400">{description}</Text>
-          </VStack>
-          <Box
-            as="span"
-            color="brand.400"
-            fontWeight="medium"
-            display="flex"
-            alignItems="center"
-            mt={2}
-            _hover={{
-              color: 'brand.300',
-              '& svg': {
-                transform: 'translateX(4px)',
-              },
-            }}
-          >
-            Saiba mais
-            <Box as="span" ml={2} transition="transform 0.3s ease">
-              →
-            </Box>
-          </Box>
+      <VStack spacing={6} align="flex-start" h="100%">
+        <Box
+          p={3}
+          bgGradient="linear(to-r, #007bff, #6a11cb)"
+          color="white"
+          borderRadius="lg"
+          display="inline-flex"
+        >
+          <Icon as={icon} boxSize={6} />
+        </Box>
+        <VStack spacing={4} align="flex-start" flex={1}>
+          <Heading as="h3" size="lg" color="white">
+            {title}
+          </Heading>
+          <Text color="gray.400">{description}</Text>
         </VStack>
-      </Box>
-    </motion.div>
+        <Box
+          as="span"
+          color="brand.400"
+          fontWeight="medium"
+          display="flex"
+          alignItems="center"
+          mt={2}
+          _hover={{
+            color: 'brand.300',
+            '& svg': {
+              transform: 'translateX(4px)',
+            },
+          }}
+        >
+          Saiba mais
+          <Box as="span" ml={2} transition="transform 0.3s ease">
+            →
+          </Box>
+        </Box>
+      </VStack>
+    </Box>
   );
 };
 

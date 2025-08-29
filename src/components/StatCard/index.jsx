@@ -1,13 +1,21 @@
 import { Box, Heading, Text, VStack } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 
 const StatCard = ({ icon: Icon, value, label, index = 0 }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <Box
+      spacing={4}
+      p={8}
+      bg="rgba(255, 255, 255, 0.03)"
+      borderRadius="lg"
+      border="1px solid"
+      borderColor="rgba(255, 255, 255, 0.1)"
+      height="100%"
+      _hover={{
+        borderColor: 'brand.500',
+        transform: 'translateY(-5px)',
+        boxShadow: '0 10px 25px -5px rgba(0, 123, 255, 0.2)',
+      }}
+      transition="all 0.3s ease"
     >
       <VStack
         spacing={4}
@@ -40,7 +48,7 @@ const StatCard = ({ icon: Icon, value, label, index = 0 }) => {
           {label}
         </Text>
       </VStack>
-    </motion.div>
+    </Box>
   );
 };
 

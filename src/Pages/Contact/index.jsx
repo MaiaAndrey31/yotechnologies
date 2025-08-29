@@ -1,5 +1,4 @@
 import { Box, Container, Flex, Heading, Text, VStack, Input, Textarea, Button, useToast, FormControl, FormLabel, useColorModeValue, useBreakpointValue } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import { FaPaperPlane, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { useState } from 'react';
 
@@ -44,7 +43,7 @@ const Contact = () => {
         email: '',
         message: ''
       });
-    } catch (error) {
+    } catch {
       toast({
         title: 'Erro ao enviar mensagem',
         description: 'Por favor, tente novamente mais tarde.',
@@ -178,48 +177,27 @@ const Contact = () => {
           {/* Contact Info */}
           <Box w={{ base: '100%', lg: '400px' }}>
             <VStack spacing={6} align="stretch">
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <ContactCard
-                  icon={FaMapMarkerAlt}
-                  title="Endereço"
-                  description="Av. Paulista, 1000, São Paulo - SP, 01310-100"
-                />
-              </motion.div>
+              <ContactCard
+                icon={FaMapMarkerAlt}
+                title="Endereço"
+                description="Av. Paulista, 1000, São Paulo - SP, 01310-100"
+              />
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <ContactCard
-                  icon={FaPhoneAlt}
-                  title="Telefone"
-                  description="(11) 99999-9999"
-                  href="tel:+5511999999999"
-                  isLink={true}
-                />
-              </motion.div>
+              <ContactCard
+                icon={FaPhoneAlt}
+                title="Telefone"
+                description="(11) 99999-9999"
+                href="tel:+5511999999999"
+                isLink={true}
+              />
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <ContactCard
-                  icon={FaEnvelope}
-                  title="E-mail"
-                  description="contato@yotechnologies.com.br"
-                  href="mailto:contato@yotechnologies.com.br"
-                  isLink={true}
-                />
-              </motion.div>
+              <ContactCard
+                icon={FaEnvelope}
+                title="E-mail"
+                description="contato@yotechnologies.com.br"
+                href="mailto:contato@yotechnologies.com.br"
+                isLink={true}
+              />
             </VStack>
           </Box>
         </Flex>
