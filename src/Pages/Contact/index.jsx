@@ -3,51 +3,8 @@ import { motion } from 'framer-motion';
 import { FaPaperPlane, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { useState } from 'react';
 
-const ContactCard = ({ icon, title, description, href, isLink = false }) => {
-  const content = (
-    <VStack
-      spacing={4}
-      p={8}
-      bg="rgba(255, 255, 255, 0.03)"
-      borderRadius="lg"
-      border="1px solid"
-      borderColor="rgba(255, 255, 255, 0.1)"
-      height="100%"
-      _hover={{
-        borderColor: 'brand.500',
-        transform: 'translateY(-5px)',
-        boxShadow: '0 10px 25px -5px rgba(0, 123, 255, 0.2)',
-      }}
-      transition="all 0.3s ease"
-    >
-      <Box
-        p={4}
-        bgGradient="linear(to-r, #007bff, #6a11cb)"
-        color="white"
-        borderRadius="lg"
-        display="inline-flex"
-      >
-        <Box as={icon} size={20} />
-      </Box>
-      <Heading as="h3" size="md" color="white">
-        {title}
-      </Heading>
-      <Text color="gray.400" textAlign="center">
-        {description}
-      </Text>
-    </VStack>
-  );
+import ContactCard from '../../components/ContactCard';
 
-  if (isLink) {
-    return (
-      <a href={href} style={{ width: '100%', textDecoration: 'none' }}>
-        {content}
-      </a>
-    );
-  }
-
-  return content;
-};
 const Contact = () => {
   const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -145,6 +102,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Seu nome"
+                  autoComplete="name"
                   bg={inputBg}
                   borderColor={inputBorder}
                   _hover={{ borderColor: inputFocusBorder }}
@@ -164,6 +122,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="seu@email.com"
+                  autoComplete="email"
                   bg={inputBg}
                   borderColor={inputBorder}
                   _hover={{ borderColor: inputFocusBorder }}
@@ -182,6 +141,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Conte-nos sobre seu projeto..."
+                  autoComplete="off"
                   rows={6}
                   bg={inputBg}
                   borderColor={inputBorder}

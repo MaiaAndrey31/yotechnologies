@@ -4,11 +4,11 @@ import { Helmet } from "react-helmet-async";
 import { useEffect } from 'react';
 import theme from './theme';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Cases from './components/Cases';
-import Contact from './components/Contact';
+import Hero from './Pages/Hero';
+import About from './Pages/About';
+import Services from './Pages/Services';
+import Cases from './Pages/Cases';
+import Contact from './Pages/Contact';
 import Footer from './components/Footer';
 
 // Scroll to top on route change
