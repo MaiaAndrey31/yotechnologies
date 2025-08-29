@@ -12,7 +12,6 @@ import styled from '@emotion/styled'
 
 export const AboutSection = styled(Box)`
   position: relative;
-  overflow: hidden;
   margin-top: 3rem;
   padding-top: 2rem;
 `

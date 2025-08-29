@@ -39,7 +39,7 @@ function App() {
       
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
-        <Box minH="100vh" bg="dark.900" color="white" display="flex" flexDirection="column" overflowX="hidden">
+        <Box minH="100vh" bg="dark.900" color="white" display="flex" flexDirection="column" overflow="hidden">
           <Header />
           <Box as="main" flex={1}>
             <Routes>

@@ -1,5 +1,5 @@
-import { Box } from '@chakra-ui/react';
-import styled from '@emotion/styled';
+import { Box } from '@chakra-ui/react'
+import styled from '@emotion/styled'
 
 export const StickyHeader = styled(Box)`
   position: fixed;
@@ -11,4 +11,7 @@ export const StickyHeader = styled(Box)`
   background: rgba(13, 17, 23, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-`;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+`

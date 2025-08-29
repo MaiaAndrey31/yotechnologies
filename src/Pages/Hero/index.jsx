@@ -82,7 +82,7 @@ const Hero = () => {
         />
 
         <ContentContainer>
-          <ContentFlex base='80px' md='128px'>
+          <ContentFlex>
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -4,12 +4,10 @@ import { motion } from 'framer-motion'
 
 export const HeroSection = styled(Box)`
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
-  padding-top: 80px;
   background: linear-gradient(
       135deg,
       rgba(13, 17, 23, 0.25) 0%,
@@ -40,12 +38,12 @@ export const ContentFlex = styled(Flex)`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: ${({ base }) => `${base} 0`};
+  padding: 2rem 0;
 
   @media (min-width: 48em) {
     align-items: flex-start;
     text-align: left;
-    padding: ${({ base, md }) => `${md || base} 0`};
+    padding: 3rem 0;
   }
 `
 
