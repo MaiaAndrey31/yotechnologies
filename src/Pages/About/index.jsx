@@ -75,16 +75,15 @@ const About = () => {
             <DecryptedText
               style={{
                 color: '#efefef',
-                maxWidth: '35rem',
+                maxWidth: '30rem',
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 lineHeight: '1.6',
                 fontSize: '1.5rem',
               }}
-              text='Na Yo Technologies, tornamos a IA simples e acessível para o seu negócio. 
-            Aplicamos tecnologia onde mais importa: mais eficiência, menos custos e crescimento mensurável.'
+              text='Na Yo, tornamos a Inteligência Artificial simples e acessível para o seu negócio. Aplicamos tecnologia onde mais importa: mais eficiência, menos custos e crescimento mensurável.'
               animateOn='view'
-              revealDirection='center'
+              revealDirection='left'
             />
           </div>
         </HeaderBox>

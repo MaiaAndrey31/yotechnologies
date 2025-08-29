@@ -20,15 +20,15 @@ const styles = {
 
 export default function DecryptedText({
   text,
-  speed = 10,
-  maxIterations = 10,
+  speed = 20,
+  maxIterations = 2,
   sequential = true,
   revealDirection = 'center',
   useOriginalCharsOnly = false,
   characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+',
-  className = 'subtitle',
-  parentClassName = '',
-  encryptedClassName = '',
+  className = 'decrypted-text',
+  parentClassName = 'decrypted-text',
+  encryptedClassName = 'decrypted-text',
   animateOn = 'view',
   ...props
 }) {
