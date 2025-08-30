@@ -13,7 +13,7 @@ import styled from '@emotion/styled'
 export const AboutSection = styled(Box)`
   position: relative;
   margin-top: 3rem;
-  padding-top: 2rem;
+  padding-top: 12rem;
 `
 
 export const SectionContainer = styled(Box)`
@@ -114,25 +114,27 @@ export const DecorativeOrb = styled(Box)`
 `
 
 export const TopLeftOrb = styled(DecorativeOrb)`
-  top: 10%;
+position: absolute;
+  top: 10px;
   left: -100px;
   width: 400px;
   height: 400px;
   background: radial-gradient(
     circle,
-    rgba(0, 123, 255, 0.1) 0%,
-    rgba(0, 123, 255, 0) 70%
+    rgba(0, 123, 255, 0.1) 100%,
+    rgba(0, 123, 255, 0.6) 100%
   );
 `
 
 export const BottomRightOrb = styled(DecorativeOrb)`
-  bottom: 10%;
-  right: -150px;
+position: absolute;
+  bottom: 10px;
+  right: -100px;
   width: 500px;
   height: 500px;
   background: radial-gradient(
     circle,
-    rgba(106, 17, 203, 0.1) 0%,
-    rgba(106, 17, 203, 0) 70%
+    rgba(106, 17, 203, 0.8) 100%,
+    rgba(106, 17, 203, 0.8) 100%
   );
 `

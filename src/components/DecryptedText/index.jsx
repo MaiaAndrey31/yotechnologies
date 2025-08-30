@@ -20,16 +20,16 @@ const styles = {
 
 export default function DecryptedText({
   text,
-  speed = 20,
-  maxIterations = 2,
+  speed = 1, // Higher number = faster animation
+  maxIterations = 10, // More iterations for smoother transition
   sequential = true,
-  revealDirection = 'center',
+  revealDirection = 'start',
   useOriginalCharsOnly = false,
-  characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+',
+  characters = '!@#$%^&*',
   className = 'decrypted-text',
   parentClassName = 'decrypted-text',
   encryptedClassName = 'decrypted-text',
-  animateOn = 'view',
+  animateOn = 'hover',
   ...props
 }) {
   const [displayText, setDisplayText] = useState(text)
@@ -38,6 +38,10 @@ export default function DecryptedText({
   const [revealedIndices, setRevealedIndices] = useState(new Set())
   const [hasAnimated, setHasAnimated] = useState(false)
   const containerRef = useRef(null)
+  
+  const getRandomChar = () => {
+    return characters[Math.floor(Math.random() * characters.length)]
+  }
 
   useEffect(() => {
     let interval
@@ -121,34 +125,48 @@ export default function DecryptedText({
       }
     }
 
-    if (isHovering) {
+    if (isHovering && !isScrambling) {
       setIsScrambling(true)
-      interval = setInterval(() => {
-        setRevealedIndices((prevRevealed) => {
-          if (sequential) {
-            if (prevRevealed.size < text.length) {
-              const nextIndex = getNextIndex(prevRevealed)
-              const newRevealed = new Set(prevRevealed)
-              newRevealed.add(nextIndex)
-              setDisplayText(shuffleText(text, newRevealed))
-              return newRevealed
-            } else {
-              clearInterval(interval)
-              setIsScrambling(false)
-              return prevRevealed
-            }
+      const totalDuration = 6000 // 6 seconds in milliseconds
+      const totalCharacters = text.replace(/\s/g, '').length
+      const revealInterval = Math.max(10, Math.floor(totalDuration / totalCharacters))
+      let currentIndex = 0
+      
+      const revealNext = () => {
+        if (currentIndex < text.length) {
+          const nextIndex = getNextIndex(new Set(Array.from({length: currentIndex}, (_, i) => i)))
+          if (nextIndex >= 0 && nextIndex < text.length && text[nextIndex] !== ' ') {
+            setRevealedIndices(prev => {
+              const newSet = new Set(prev)
+              newSet.add(nextIndex)
+              return newSet
+            })
+            currentIndex++
+            setTimeout(revealNext, revealInterval)
           } else {
-            setDisplayText(shuffleText(text, prevRevealed))
-            currentIteration++
-            if (currentIteration >= maxIterations) {
-              clearInterval(interval)
-              setIsScrambling(false)
-              setDisplayText(text)
-            }
-            return prevRevealed
+            currentIndex++
+            setTimeout(revealNext, 0)
           }
+        } else {
+          setIsScrambling(false)
+        }
+      }
+      
+      // Initial scramble effect
+      const scrambleInterval = setInterval(() => {
+        setDisplayText(prev => {
+          return prev.split('').map((char, i) => {
+            if (char === ' ' || revealedIndices.has(i)) return char
+            return getRandomChar()
+          }).join('')
         })
-      }, speed)
+      }, 50)
+      
+      // Start revealing characters
+      revealNext()
+      
+      // Cleanup
+      return () => clearInterval(scrambleInterval)
     } else {
       setDisplayText(text)
       setRevealedIndices(new Set())
@@ -177,6 +195,10 @@ export default function DecryptedText({
         if (entry.isIntersecting && !hasAnimated) {
           setIsHovering(true)
           setHasAnimated(true)
+        } else if (!entry.isIntersecting && hasAnimated) {
+          setIsHovering(false)
+          setRevealedIndices(new Set())
+          setHasAnimated(false)
         }
       })
     }

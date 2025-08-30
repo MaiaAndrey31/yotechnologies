@@ -52,19 +52,10 @@ const About = () => {
   })
 
   return (
-    <AboutSection id='sobre' sx={{ py: '120px 0' }}>
+    <AboutSection id='sobre' >
       <SectionContainer>
         <HeaderBox>
-          <Text
-            as='span'
-            color='brand.400'
-            fontWeight='semibold'
-            letterSpacing='wider'
-            textTransform='uppercase'
-            fontSize='sm'
-          >
-            Quem Somos
-          </Text>
+          
 
           <SectionTitle as='h2' size={headingSize}>
             Do potencial da IA aos{' '}
@@ -80,10 +71,25 @@ const About = () => {
                 marginRight: 'auto',
                 lineHeight: '1.6',
                 fontSize: '1.5rem',
+                cursor: 'pointer',
               }}
-              text='Na Yo, tornamos a Inteligência Artificial simples e acessível para o seu negócio. Aplicamos tecnologia onde mais importa: mais eficiência, menos custos e crescimento mensurável.'
-              animateOn='view'
-              revealDirection='left'
+              text='Na Yo, tornamos a Inteligência Artificial simples e acessível para o seu negócio.'
+              animateOn='hover'
+              revealDirection='start'
+            />
+             <DecryptedText
+              style={{
+                color: '#efefef',
+                maxWidth: '30rem',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                lineHeight: '1.6',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+              }}
+              text='Aplicamos tecnologia onde mais importa: mais eficiência, menos custos e crescimento mensurável.'
+              animateOn='hover'
+              revealDirection='start'
             />
           </div>
         </HeaderBox>

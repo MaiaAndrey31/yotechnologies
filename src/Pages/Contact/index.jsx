@@ -87,14 +87,13 @@ const Contact = () => {
     <Box
       as='section'
       id='contato'
-      py={{ base: '80px ', md: '120px 0' }}
-      px={{ base: 4, md: 6 }}
+      
       bg='transparent'
       position='relative'
-      overflow='hidden'
-      minH='100vh'
-      display='flex'
-      alignItems='center'
+      minH='auto'
+      display='block'
+      w='100%'
+     
     >
       {/* LetterGlitch Background */}
       <Box
@@ -126,11 +125,14 @@ const Contact = () => {
         maxW='container.xl' 
         position='relative' 
         zIndex={1} 
-        bg='rgba(13, 17, 23, 0.8)' 
+        bg='rgba(13, 17, 23, 0.95)' 
         borderRadius='lg' 
-        p={{ base: 6, md: 12 }}
-        my={12}
-        boxShadow='xl'
+        p={{ base: 2, md: 12 }}
+        my={40}
+        boxShadow='2xl'
+        border='1px groove'
+        borderColor='whiteAlpha.100'
+        transform='translateY(0)'
       >
         <Box textAlign='center' mb={{ base: 12, md: 16 }}>
           
