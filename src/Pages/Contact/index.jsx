@@ -25,13 +25,6 @@ import { useState } from 'react'
 import ContactCard from '../../components/ContactCard'
 import LetterGlitch from '../../components/LetterGlitch'
 
-;<LetterGlitch
-  glitchSpeed={50}
-  centerVignette={true}
-  outerVignette={false}
-  smooth={true}
-/>
-
 const Contact = () => {
   const toast = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -94,23 +87,53 @@ const Contact = () => {
     <Box
       as='section'
       id='contato'
-      py={sectionPadding}
-      bg='rgba(13, 17, 23, 0.8)'
+      py={{ base: '80px ', md: '120px 0' }}
+      px={{ base: 4, md: 6 }}
+      bg='transparent'
       position='relative'
       overflow='hidden'
+      minH='100vh'
+      display='flex'
+      alignItems='center'
     >
-      <Container maxW='container.xl'>
-        <Box textAlign='center' mb={20}>
-          <Text
-            as='span'
-            color='brand.400'
-            fontWeight='semibold'
-            letterSpacing='wider'
-            textTransform='uppercase'
-            fontSize='sm'
-          >
-            Contato
-          </Text>
+      {/* LetterGlitch Background */}
+      <Box
+        position='absolute'
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        zIndex={0}
+        opacity={0.8}
+        pointerEvents='none'
+        
+      >
+        <Box
+          as={LetterGlitch}
+          position='absolute'
+          top={0}
+          left={0}
+          width='100vw'
+          height='100vh'
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={false}
+          smooth={true}
+        />
+      </Box>
+
+      <Container 
+        maxW='container.xl' 
+        position='relative' 
+        zIndex={1} 
+        bg='rgba(13, 17, 23, 0.8)' 
+        borderRadius='lg' 
+        p={{ base: 6, md: 12 }}
+        my={12}
+        boxShadow='xl'
+      >
+        <Box textAlign='center' mb={{ base: 12, md: 16 }}>
+          
           <Heading as='h2' size={headingSize} mb={6} fontWeight='bold'>
             Vamos conversar sobre o{' '}
             <Box
