@@ -49,7 +49,7 @@ export const ContentFlex = styled(Flex)`
 
 export const Title = styled(Heading)`
 
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 1.5rem;
