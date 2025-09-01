@@ -3,12 +3,12 @@ import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 const ContactCard = ({ icon, title, description, href, isLink = false }) => {
   const content = (
     <VStack
-      spacing={4}
-      p={8}
+      spacing={2}
+      p={6}
       bg="rgba(255, 255, 255, 0.03)"
       borderRadius="lg"
-      border="1px solid"
-      borderColor="rgba(255, 255, 255, 0.1)"
+      border="1px groove"
+      borderColor="rgba(255, 255, 255, 0.8)"
       height="100%"
       _hover={{
         borderColor: 'brand.500',
