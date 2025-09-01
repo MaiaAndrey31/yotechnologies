@@ -49,7 +49,7 @@ export const ContentFlex = styled(Flex)`
 
 export const Title = styled(Heading)`
 
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -94,7 +94,7 @@ export const ButtonsContainer = styled(Flex)`
 export const PrimaryButton = styled(Button)`
   padding: 3rem 2rem;
   border-radius: 1rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
   line-height: 1.5;
   transition: all 0.3s;
 

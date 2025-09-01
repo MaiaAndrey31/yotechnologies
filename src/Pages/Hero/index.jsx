@@ -94,7 +94,7 @@ const Hero = () => {
 
       <Subtitle fontSize={subheadingSize}>
         Na <b>Yo Tech</b>, criamos automações e agentes de IA que eliminam tarefas manuais, aumentam suas vendas e tornam sua operação mais ágil e lucrativa. 
-        ➡️ O futuro da sua empresa começa agora.
+      ➡️ O futuro da sua empresa começa agora.
       </Subtitle>
 
       <ButtonsContainer>
