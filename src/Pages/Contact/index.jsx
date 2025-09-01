@@ -1,44 +1,33 @@
+import { useState, lazy, Suspense } from 'react';
+import { useToast, Box } from '@chakra-ui/react';
+import { FaCheckCircle, FaArrowRight, FaWhatsapp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
+const LetterGlitch = lazy(() => import('../../components/LetterGlitch'));
 import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Text,
-  VStack,
-  Input,
-  Textarea,
-  Button,
-  useToast,
-  FormControl,
-  FormLabel,
-  useColorModeValue,
-  useBreakpointValue,
-} from '@chakra-ui/react';
-import {
-  FaPaperPlane,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-} from 'react-icons/fa';
-import { useState } from 'react';
-import ContactCard from '../../components/ContactCard';
-import LetterGlitch from '../../components/LetterGlitch';
-import {
-  sectionStyles,
-  backgroundStyles,
-  glitchStyles,
-  containerStyles,
-  headingStyles,
-  gradientTextStyles,
-  descriptionStyles,
-  formControlStyles,
-  inputStyles,
-  textareaStyles,
-  buttonStyles,
-  contactCardStyles,
-  contactIconStyles,
-  contactHeadingStyles,
-  contactTextStyles
+  ContactSection,
+  GlitchBackground,
+  ContactContainer,
+  ContactContent,
+  ContactGrid,
+  ContactTitle,
+  ContactDescription,
+  FeatureList,
+  FeatureItem,
+  FeatureIcon,
+  FeatureText,
+  ContactInfo,
+  ContactInfoIcon,
+  ContactInfoText,
+  ContactInfoLabel,
+  ContactInfoLink,
+  ContactForm,
+  FormGroup,
+  FormLabelStyled,
+  InputStyled,
+  TextareaStyled,
+  SubmitButton,
+  FormFooter
 } from './style';
 
 const Contact = () => {
@@ -47,143 +36,174 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
+    phone: '',
+    company: '',
+    message: ''
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
       toast({
-        title: 'Mensagem enviada!',
-        description: 'Entraremos em contato em breve.',
+        title: 'Solicitação enviada!',
+        description: 'Nossa equipe entrará em contato para confirmar o agendamento.',
         status: 'success',
         duration: 5000,
         isClosable: true,
       });
-
-      setFormData({
-        name: '',
-        email: '',
-        message: '',
+      setFormData({ 
+        name: '', 
+        email: '', 
+        phone: '',
+        company: '',
+        message: '' 
       });
-    } catch {
-      toast({
-        title: 'Erro ao enviar mensagem',
-        description: 'Por favor, tente novamente mais tarde.',
-        status: 'error',
-        duration: 5000,
-        isClosable: true,
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    }, 1500);
   };
 
-  const headingSize = useBreakpointValue({ base: '2xl', md: '4xl' });
-  const inputBg = useColorModeValue('whiteAlpha.100', 'whiteAlpha.50');
-  const inputBorder = useColorModeValue('whiteAlpha.300', 'whiteAlpha.200');
-  const inputFocusBorder = useColorModeValue('brand.500', 'brand.300');
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const features = [
+    { icon: FaCheckCircle, text: "Análise personalizada do seu negócio" },
+    { icon: FaCheckCircle, text: "Estratégia de automação sob medida" },
+    { icon: FaCheckCircle, text: "Projeção de ROI para sua empresa" },
+    { icon: FaCheckCircle, text: "Sem compromisso, sem cobrança" }
+  ];
 
   return (
-    <Box {...sectionStyles}>
-      <Box {...backgroundStyles}>
-        <Box as={LetterGlitch} {...glitchStyles} />
-      </Box>
-
-      <Container {...containerStyles}>
-        <Box textAlign="center" mb={{ base: 12, md: 16 }}>
-          <Heading {...headingStyles(headingSize)}>
-            Vamos conversar sobre o{' '}
-            <Box as="span" {...gradientTextStyles}>
-              futuro do seu negócio com IA?
-            </Box>
-          </Heading>
-          <Box maxW="3xl" mx="auto">
-            <Text {...descriptionStyles}>
-              Preencha o formulário e receba um diagnóstico gratuito de
-              oportunidades com IA para sua empresa.
-            </Text>
-          </Box>
-        </Box>
-
-        <Flex direction={{ base: 'column', lg: 'row' }} gap={12}>
-          <Box flex={1} as="form" onSubmit={handleSubmit}>
-            <VStack spacing={6}>
-              <FormControl {...formControlStyles}>
-                <FormLabel color="gray.300">Nome</FormLabel>
-                <Input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  {...inputStyles(inputBg, inputBorder, inputFocusBorder)}
-                />
-              </FormControl>
-
-              <FormControl {...formControlStyles}>
-                <FormLabel color="gray.300">E-mail</FormLabel>
-                <Input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="seu@email.com"
-                  autoComplete="email"
-                  {...inputStyles(inputBg, inputBorder, inputFocusBorder)}
-                />
-              </FormControl>
-
-              <FormControl {...formControlStyles}>
-                <FormLabel color="gray.300">Mensagem</FormLabel>
-                <Textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  {...textareaStyles(inputBg, inputBorder, inputFocusBorder)}
-                />
-              </FormControl>
-
-              <Button
-                {...buttonStyles}
-                rightIcon={<FaPaperPlane />}
-                isLoading={isSubmitting}
-                loadingText="Enviando..."
-              >
-                Enviar Mensagem
-              </Button>
-            </VStack>
-          </Box>
-
-          <VStack spacing={6} flexBasis="400px">
-            <ContactCard
-              icon={FaPhoneAlt}
-              title="Telefone"
-              description="+55 (11) 99999-9999"
-              isLink={true}
-              href="tel:+5511999999999"
-            />
-            <ContactCard
-              icon={FaEnvelope}
-              title="E-mail"
-              description="contato@yotechnologies.com.br"
-              isLink={true}
-              href="mailto:contato@yotechnologies.com.br"
-            />
-          </VStack>
-        </Flex>
-      </Container>
-    </Box>
+    <ContactSection id="contato">
+      <GlitchBackground>
+        <Suspense fallback={null}>
+          <LetterGlitch
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+            smooth={true}
+            style={{
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+          />
+        </Suspense>
+      </GlitchBackground>
+      <ContactContainer maxW="container.xl" position="relative" zIndex={2}>
+        <ContactGrid>
+          <ContactContent>
+            <ContactTitle>Pronto para transformar seu negócio com IA?</ContactTitle>
+            <ContactDescription>
+              Agende uma consultoria gratuita de 30 minutos com nossos especialistas e 
+              descubra como podemos impulsionar seus resultados.
+            </ContactDescription>
+            
+            <FeatureList>
+              {features.map((item, index) => (
+                <FeatureItem key={index}>
+                  <FeatureIcon as={item.icon} />
+                  <FeatureText>{item.text}</FeatureText>
+                </FeatureItem>
+              ))}
+            </FeatureList>
+            
+            <ContactInfo>
+              <ContactInfoIcon as={FaWhatsapp} />
+              <ContactInfoText>
+                <ContactInfoLabel>Prefere falar agora?</ContactInfoLabel>
+                <ContactInfoLink 
+                  href="https://wa.me/5511999999999" 
+                  isExternal
+                >
+                  (11) 99999-9999
+                </ContactInfoLink>
+              </ContactInfoText>
+            </ContactInfo>
+          </ContactContent>
+          
+          <ContactForm as="form" onSubmit={handleSubmit}>
+            <FormGroup isRequired>
+              <FormLabelStyled>Nome Completo</FormLabelStyled>
+              <InputStyled 
+                type="text" 
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Seu nome"
+              />
+            </FormGroup>
+            
+            <FormGroup isRequired>
+              <FormLabelStyled>E-mail Corporativo</FormLabelStyled>
+              <InputStyled 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="seu@email.com"
+              />
+            </FormGroup>
+            
+            <FormGroup isRequired>
+              <FormLabelStyled>Telefone/WhatsApp</FormLabelStyled>
+              <InputStyled 
+                type="tel" 
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="(00) 00000-0000"
+              />
+            </FormGroup>
+            
+            <FormGroup isRequired>
+              <FormLabelStyled>Empresa</FormLabelStyled>
+              <InputStyled 
+                type="text" 
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
+                placeholder="Nome da empresa"
+              />
+            </FormGroup>
+            
+            <FormGroup>
+              <FormLabelStyled>Como podemos ajudar? (opcional)</FormLabelStyled>
+              <TextareaStyled 
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Conte-nos sobre seus desafios e objetivos..."
+              />
+            </FormGroup>
+            
+            <SubmitButton
+              as={motion.button}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Enviando...' : 'Agendar Consultoria Grátis'}
+              {!isSubmitting && <FaArrowRight style={{ marginLeft: '8px' }} />}
+            </SubmitButton>
+            
+            <FormFooter>
+              Ao enviar, você concorda com nossa Política de Privacidade. Seus dados estão seguros conosco.
+            </FormFooter>
+          </ContactForm>
+        </ContactGrid>
+      </ContactContainer>
+    </ContactSection>
   );
 };
 

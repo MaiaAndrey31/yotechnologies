@@ -1,137 +1,132 @@
-import { useBreakpointValue, Text } from '@chakra-ui/react';
-import { Link as ScrollLink } from 'react-scroll';
-import { FaChartLine, FaUsers, FaDollarSign } from 'react-icons/fa';
-import StatCard from '../../components/StatCard';
-import CaseStudyCard from '../CaseStudyCard';
-import {
-  CasesSection,
-  SectionContainer,
-  HeaderBox,
-  SectionTitle,
-  GradientText,
-  SectionDescription,
-  StatsGrid,
-  CtaBox,
-  CtaButton,
-  CaseStudiesSection,
-  CaseStudiesTitle,
-  CaseStudiesGrid,
-  TopRightOrb,
-  BottomLeftOrb
-} from './style';
+import { Box, Container, Text, Button, VStack, HStack, Icon, SimpleGrid } from '@chakra-ui/react';
+import { FaCheckCircle, FaArrowRight, FaWhatsapp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { CasesSection, SectionContainer, HeaderBox, SectionTitle, SectionDescription } from './style';
 
 const Cases = () => {
-  const sectionPadding = useBreakpointValue({ base: '80px 0', md: '120px 0' });
-  const headingSize = useBreakpointValue({ base: '2xl', md: '4xl' });
-  const textSize = useBreakpointValue({ base: 'lg', md: 'xl' });
-  const statsColumns = useBreakpointValue({ base: 1, md: 3 });
-  const caseStudiesColumns = useBreakpointValue({ base: 1, lg: 3 });
-
-  const stats = [
-    {
-      icon: FaChartLine,
-      value: '+300%',
-      label: 'Aumento na eficiência de atendimento',
-    },
-    {
-      icon: FaDollarSign,
-      value: '40%',
-      label: 'Redução de custos operacionais',
-    },
-    {
-      icon: FaUsers,
-      value: '24/7',
-      label: 'Atendimento ininterrupto',
-    },
-  ];
-
   const caseStudies = [
     {
-      title: 'Varejo Inteligente',
-      description:
-        'Implementação de chatbot com IA para atendimento ao cliente em rede de varejo, integrado ao sistema de pedidos e estoque.',
-      impact: 'Redução de 70% no tempo de resposta ao cliente e aumento de 45% nas vendas diretas pelo chatbot.',
+      industry: "Varejo",
+      client: "Rede de Lojas de Moda",
+      challenge: "Atendimento ineficiente e alto custo operacional",
+      solution: "Implementação de agente de IA para atendimento multicanal",
+      results: [
+        "+45% de aumento nas vendas",
+        "Redução de 60% nos custos com SAC",
+        "Satisfação do cliente: 4.8/5"
+      ],
+      logo: "👕"
     },
     {
-      title: 'Fintech',
-      description:
-        'Solução de automação para análise de crédito e aprovação de empréstimos usando machine learning.',
-      impact: 'Redução de 60% no tempo de análise de crédito e aumento de 35% na aprovação de clientes qualificados.',
+      industry: "Fintech",
+      client: "Plataforma de Investimentos",
+      challenge: "Processos manuais de análise de perfil de investidor",
+      solution: "Automação com IA para análise preditiva",
+      results: [
+        "+70% de precisão nas recomendações",
+        "Tempo de análise reduzido em 85%",
+        "Aumento de 2,5x na retenção de clientes"
+      ],
+      logo: "💳"
     },
     {
-      title: 'Saúde Digital',
-      description:
-        'Plataforma de agendamento e atendimento médico com assistente virtual integrado para triagem inicial.',
-      impact: 'Otimização de 80% no agendamento de consultas e redução de 50% nas faltas com lembretes automáticos.',
-    },
+      industry: "Saúde",
+      client: "Rede de Clínicas",
+      challenge: "Gestão ineficiente de agendamentos e prontuários",
+      solution: "Sistema integrado de gestão com IA",
+      results: [
+        "Redução de 75% nas faltas",
+        "Aumento de 30% na capacidade de atendimento",
+        "Economia de 20 horas/semana em processos manuais"
+      ],
+      logo: "🏥"
+    }
   ];
 
   return (
-    <CasesSection id="cases" sx={{ py: sectionPadding }}>
+    <CasesSection id="cases">
       <SectionContainer>
         <HeaderBox>
-          <Text
-            as="span"
-            color="brand.400"
-            fontWeight="semibold"
-            letterSpacing="wider"
-            textTransform="uppercase"
-            fontSize="sm"
-          >
-            Nossos Resultados
-          </Text>
-          
-          <SectionTitle as="h2" size={headingSize}>
-            Impacto real para nossos{' '}
-            <GradientText>clientes</GradientText>
-          </SectionTitle>
-          
-          <SectionDescription fontSize={textSize} maxW="3xl" mx="auto">
-            Números que importam para o seu crescimento. Resultados reais, entregues com Inteligência Artificial aplicada ao seu negócio.
+          <SectionTitle>Casos de Sucesso</SectionTitle>
+          <SectionDescription>
+            Veja como transformamos desafios em resultados extraordinários para nossos clientes
           </SectionDescription>
         </HeaderBox>
 
-        <StatsGrid columns={statsColumns} spacing={8} mb={10}>
-          {stats.map((stat, index) => (
-            <StatCard
+        <SimpleGrid columns={{ base: 1, lg: 3 }} spacing={8} mb={12}>
+          {caseStudies.map((caseStudy, index) => (
+            <Box
               key={index}
-              icon={stat.icon}
-              value={stat.value}
-              label={stat.label}
-              index={index}
-            />
+              as={motion.div}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              bg="whiteAlpha.50"
+              p={6}
+              borderRadius="lg"
+              borderWidth="1px"
+              borderColor="whiteAlpha.100"
+              height="100%"
+              _hover={{
+                transform: 'translateY(-5px)',
+                boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
+              }}
+            >
+              <Text fontSize="4xl" mb={4} textAlign="center">{caseStudy.logo}</Text>
+              <Text color="blue.300" fontWeight="bold" mb={1}>{caseStudy.industry}</Text>
+              <Text fontSize="lg" fontWeight="bold" mb={4}>{caseStudy.client}</Text>
+              
+              <Text color="gray.400" fontSize="sm" mb={4}>
+                <Text as="span" color="white" fontWeight="medium">Desafio:</Text> {caseStudy.challenge}
+              </Text>
+              
+              <Text color="gray.400" fontSize="sm" mb={4}>
+                <Text as="span" color="white" fontWeight="medium">Solução:</Text> {caseStudy.solution}
+              </Text>
+              
+              <Text color="white" fontWeight="medium" mb={2}>Resultados:</Text>
+              <VStack align="start" spacing={2} mb={6}>
+                {caseStudy.results.map((result, i) => (
+                  <HStack key={i} spacing={2}>
+                    <Icon as={FaCheckCircle} color="green.400" boxSize={4} />
+                    <Text color="gray.300" fontSize="sm">{result}</Text>
+                  </HStack>
+                ))}
+              </VStack>
+              
+              <Button
+                as={motion.button}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                colorScheme="blue"
+                variant="outline"
+                size="sm"
+                w="100%"
+                rightIcon={<Icon as={FaArrowRight} />}
+              >
+                Ver estudo completo
+              </Button>
+            </Box>
           ))}
-        </StatsGrid>
-
-        <CtaBox>
-          <ScrollLink to="contato" smooth={true} duration={500} offset={-80}>
-            <CtaButton variant="primary">
-              Agende uma demonstração e veja na prática
-            </CtaButton>
-          </ScrollLink>
-        </CtaBox>
-
-        <CaseStudiesSection>
-          <CaseStudiesTitle as="h3" size="xl">
-            Estudos de Caso
-          </CaseStudiesTitle>
-          
-          <CaseStudiesGrid columns={caseStudiesColumns} spacing={8}>
-            {caseStudies.map((caseStudy, index) => (
-              <CaseStudyCard
-                key={index}
-                title={caseStudy.title}
-                description={caseStudy.description}
-                impact={caseStudy.impact}
-                index={index}
-              />
-            ))}
-          </CaseStudiesGrid>
-        </CaseStudiesSection>
+        </SimpleGrid>
+        
+        <Box textAlign="center" mt={8}>
+          <Text color="gray.400" mb={4}>
+            Quer resultados semelhantes para o seu negócio?
+          </Text>
+          <Button 
+            as={motion.button}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            colorScheme="blue"
+            size="lg"
+            rightIcon={<Icon as={FaWhatsapp} />}
+          >
+            Fale com nossos especialistas
+          </Button>
+        </Box>
       </SectionContainer>
-
-      <TopRightOrb />
-      <BottomLeftOrb />
     </CasesSection>
   );
 };

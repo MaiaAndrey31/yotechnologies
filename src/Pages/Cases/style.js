@@ -1,32 +1,36 @@
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  SimpleGrid,
-  Button,
-} from '@chakra-ui/react'
-import styled from '@emotion/styled'
+import { Box, Container, Text, Button, VStack, HStack, Icon, SimpleGrid, Heading } from '@chakra-ui/react';
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 export const CasesSection = styled(Box)`
   position: relative;
-`
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #0a0e17 0%, #13182b 100%);
+`;
 
 export const SectionContainer = styled(Container)`
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
-`
+  position: relative;
+  z-index: 1;
+`;
 
 export const HeaderBox = styled(Box)`
   text-align: center;
-  margin-bottom: 5rem;
-`
+  margin-bottom: 3rem;
+`;
 
-export const SectionTitle = styled(Heading)`
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-`
+export const SectionTitle = styled(Text)`
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #4299e1 0%, #9f7aea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
 
 export const GradientText = styled.span`
   background: linear-gradient(to right, #007bff, #6a11cb);
@@ -35,6 +39,7 @@ export const GradientText = styled.span`
   background-clip: text;
   color: transparent;
 `
+
 
 export const SectionDescription = styled(Text)`
   color: #a0aec0;
