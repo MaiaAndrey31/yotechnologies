@@ -1,7 +1,24 @@
-import { useBreakpointValue, Box, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  Container,
+  SimpleGrid,
+  Grid,
+  GridItem,
+  useColorModeValue,
+  useBreakpointValue,
+  Button,
+  Icon,
+  chakra,
+  VStack,
+  HStack,
+  Link as ChakraLink,
+  Text
+} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { Link as ScrollLink } from 'react-scroll'
-import { FaRobot, FaChartLine, FaLightbulb } from 'react-icons/fa'
+import { FaRobot, FaChartLine, FaHandshake, FaRocket, FaGlobeAmericas, FaMoneyBillWave, FaChartBar, FaUsers } from 'react-icons/fa'
+import { BsGraphUp } from 'react-icons/bs'
+import { GiProgression } from 'react-icons/gi'
 import FeatureCard from '../../components/FeatureCard'
 import DecryptedText from '../../components/DecryptedText'
 import {
@@ -10,13 +27,15 @@ import {
   HeaderBox,
   SectionTitle,
   GradientText,
-  SubtitleText,
   FeaturesGrid,
   FeatureCardWrapper,
-  CtaBox,
-  CtaButton,
-  TopLeftOrb,
-  BottomRightOrb,
+  Card,
+  CardBody,
+  CardHeader,
+  List,
+  ListItem,
+  ListIcon,
+  ResponsiveGrid
 } from './style'
 
 const About = () => {
@@ -26,22 +45,54 @@ const About = () => {
   const features = [
     {
       icon: FaRobot,
-      title: 'Foco no seu Resultado',
+      title: 'Automação Inteligente',
       description:
-        'Não vendemos tecnologia, vendemos resultados. Nossas soluções são 100% personalizadas para resolver os desafios reais do seu negócio e impulsionar seus KPIs.',
+        'Soluções de IA que eliminam processos manuais e aumentam a eficiência operacional em até 70%.',
     },
     {
       icon: FaChartLine,
-      title: 'Credibilidade e Experiência',
+      title: 'Crescimento Escalável',
       description:
-        'Com um time de especialistas e cases de sucesso, garantimos a implementação de soluções de IA que funcionam e trazem retorno sobre o investimento.',
+        'Estrutura flexível que cresce junto com o seu negócio, de pequenas a grandes empresas.',
     },
     {
-      icon: FaLightbulb,
+      icon: FaHandshake,
       title: 'Parceria Estratégica',
       description:
-        'Atuamos como um parceiro estratégico, entendendo suas metas para aplicar a tecnologia certa, na hora certa. Seu sucesso é o nosso sucesso.',
+        'Atuamos como extensão da sua equipe, alinhando tecnologia às suas metas de negócio.',
     },
+    {
+      icon: FaRocket,
+      title: 'Implementação Rápida',
+      description:
+        'Soluções prontas em semanas, não em meses, com suporte dedicado em cada etapa.',
+    },
+    {
+      icon: FaGlobeAmericas,
+      title: 'Visão de Mercado',
+      description:
+        'Atuamos em diversos setores, com soluções adaptáveis a diferentes realidades de negócio.',
+    },
+    {
+      icon: FaMoneyBillWave,
+      title: 'Custo-Benefício',
+      description:
+        'Planos acessíveis a partir de R$ 497/mês, com retorno garantido sobre o investimento.',
+    },
+  ]
+
+  const stats = [
+    { value: '70%+', label: 'Aumento de produtividade', icon: FaChartBar },
+    { value: 'R$10K', label: 'Meta mensal em 3 meses', icon: BsGraphUp },
+    { value: '12', label: 'Meses para escala', icon: GiProgression },
+    { value: '100', label: 'Clientes em 1 ano', icon: FaUsers },
+  ]
+
+  const businessModel = [
+    'Receita recorrente mensal',
+    'Upsell de serviços personalizados',
+    'Parcerias estratégicas',
+    'Ticket médio de R$ 997/mês'
   ]
 
   const featureVariants = (index) => ({
@@ -55,14 +106,12 @@ const About = () => {
     <AboutSection id='sobre' >
       <SectionContainer>
         <HeaderBox>
-          
-
           <SectionTitle as='h2' size={headingSize}>
             Do potencial da IA aos{' '}
             <GradientText>resultados que importam</GradientText>
           </SectionTitle>
 
-          <div style={{ marginTop: '4rem' }}>
+          <Box mt={16}>
             <DecryptedText
               style={{
                 color: '#efefef',
@@ -75,52 +124,144 @@ const About = () => {
               }}
               text='Na Yo, tornamos a Inteligência Artificial simples e acessível para o seu negócio.'
               animateOn='hover'
-              revealDirection='start'
             />
-             <DecryptedText
-              style={{
-                color: '#efefef',
-                maxWidth: '30rem',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                lineHeight: '1.6',
-                fontSize: '1.5rem',
-                cursor: 'pointer',
-              }}
-              text='Aplicamos tecnologia onde mais importa: mais eficiência, menos custos e crescimento mensurável.'
-              animateOn='hover'
-              revealDirection='start'
-            />
-          </div>
+          </Box>
         </HeaderBox>
 
-        <FeaturesGrid columns={gridColumns} spacing={8} mt={16}>
-          {features.map((feature, index) => (
-            <FeatureCardWrapper
-              key={index}
-              as={motion.div}
-              {...featureVariants(index)}
-            >
-              <FeatureCard
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
-            </FeatureCardWrapper>
-          ))}
-        </FeaturesGrid>
+        {/* Problem Section */}
+        <Box mb={20}>
+          <Text fontSize="2xl" fontWeight="bold" mb={6} color="white">
+            🌐 O Problema que Resolvemos
+          </Text>
+          <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={8} mb={12}>
+            <Card>
+              <CardHeader>Processos Manuais</CardHeader>
+              <CardBody>
+                Empresas perdem tempo e recursos em tarefas repetitivas que poderiam ser automatizadas.
+              </CardBody>
+            </Card>
+            <Card>
+              <CardHeader>Falta de Integração</CardHeader>
+              <CardBody>
+                Sistemas desconectados geram retrabalho e aumentam a chance de erros operacionais.
+              </CardBody>
+            </Card>
+            <Card>
+              <CardHeader>Pressão por Eficiência</CardHeader>
+              <CardBody>
+                A necessidade de reduzir custos e aumentar a produtividade nunca foi tão grande.
+              </CardBody>
+            </Card>
+          </Grid>
+        </Box>
 
-        <CtaBox>
-          <ScrollLink to='contato' smooth={true} duration={500} offset={-80}>
-            <CtaButton size='lg' variant='primary'>
-              Descubra como aplicar IA no seu negócio
-            </CtaButton>
-          </ScrollLink>
-        </CtaBox>
+
+
+        {/* Features Section */}
+        <Box mb={20}>
+          <Text fontSize="2xl" fontWeight="bold" mb={12} color="white" textAlign="center">
+            Por que Escolher a Yo Tech?
+          </Text>
+          <FeaturesGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8}>
+            {features.map((feature, index) => (
+              <FeatureCardWrapper
+                key={feature.title}
+                as={motion.div}
+                variants={featureVariants(index)}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <FeatureCard {...feature} />
+              </FeatureCardWrapper>
+            ))}
+          </FeaturesGrid>
+        </Box>
+
+        {/* Team Section */}
+        <AboutSection>
+          <SectionContainer>
+            <HeaderBox>
+              <SectionTitle 
+                as="h2"
+                size="2xl"
+                bgGradient="linear(to-r, #4299e1, #9f7aea)"
+                bgClip="text"
+              >
+                Nossa Equipe <GradientText>Especializada</GradientText>
+              </SectionTitle>
+              <Text 
+                color={useColorModeValue('gray.600', 'gray.300')}
+                maxW="2xl"
+                mx="auto"
+                fontSize="lg"
+                mb={8}
+                px={4}
+                textAlign="center"
+              >
+                Contamos com um time multidisciplinar de especialistas dedicados a impulsionar o sucesso do seu negócio
+              </Text>
+            </HeaderBox>
+            
+            <ResponsiveGrid>
+              <Card 
+                as={motion.div}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: 'lg'
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <CardHeader>Liderança & Negócios</CardHeader>
+                <CardBody>
+                  <List spacing={3}>
+                    <ListItem>
+                      <ListIcon as={FaUsers} />
+                      Liderança e desenvolvimento de negócios
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaUsers} />
+                      Arquitetura técnica e integrações
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaUsers} />
+                      Operações e escalabilidade
+                    </ListItem>
+                  </List>
+                </CardBody>
+              </Card>
+
+              <Card
+                as={motion.div}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: 'lg'
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <CardHeader>Operações & Marketing</CardHeader>
+                <CardBody>
+                  <List spacing={3}>
+                    <ListItem>
+                      <ListIcon as={FaChartLine} />
+                      Gestão financeira e governança
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={FaChartBar} />
+                      Criação de conteúdo estratégico
+                    </ListItem>
+                    <ListItem>
+                      <ListIcon as={BsGraphUp} />
+                      Performance em marketing digital
+                    </ListItem>
+                  </List>
+                </CardBody>
+              </Card>
+            </ResponsiveGrid>
+          </SectionContainer>
+        </AboutSection>
       </SectionContainer>
-
-      <TopLeftOrb />
-      <BottomRightOrb />
     </AboutSection>
   )
 }
