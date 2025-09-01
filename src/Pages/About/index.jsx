@@ -146,7 +146,7 @@ const About = () => {
                 "📈 ROI positivo em até 90 dias"
               ].map((item, index) => (
                 <HStack key={index} spacing={3} color="whiteAlpha.800" justify={{ base: 'center', md: 'flex-start' }}>
-                  <Text fontSize="sm">{item}</Text>
+                  <Text fontSize="lg">{item}</Text>
                 </HStack>
               ))}
             </SimpleGrid>

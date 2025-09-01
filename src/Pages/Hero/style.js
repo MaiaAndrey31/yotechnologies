@@ -48,10 +48,12 @@ export const ContentFlex = styled(Flex)`
 `
 
 export const Title = styled(Heading)`
+
+  font-size: 5rem;
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  max-width: 3xl;
+  max-width: 2xl;
   margin-left: auto;
   margin-right: auto;
 
@@ -62,12 +64,15 @@ export const Title = styled(Heading)`
 `
 
 export const Subtitle = styled(Text)`
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #efefef;
   max-width: 3xl;
   margin-bottom: 2.5rem;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.5;
+  text-shadow: 0 1px 10px rgba(0, 123, 255, 0.6);
 
   @media (min-width: 62em) {
     margin-left: 0;
@@ -87,8 +92,10 @@ export const ButtonsContainer = styled(Flex)`
 `
 
 export const PrimaryButton = styled(Button)`
-  padding: 1.5rem 2rem;
-  font-size: 1.125rem;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
   transition: all 0.3s;
 
   &:hover {
@@ -102,7 +109,7 @@ export const MotionDiv = styled(motion.div)`
 `
 
 export const GradientText = styled.span`
-  background: linear-gradient(to right, #007bff, #6a11cb);
+  background: linear-gradient(to top, #007bff, #6a11cb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

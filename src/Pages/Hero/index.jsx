@@ -49,15 +49,15 @@ const Hero = () => {
   }
 
   return (
-    <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
       <Particles
-        particleCount={1000}
-        particleSpread={8}
-        speed={0.08}
+        particleCount={3000}
+        particleSpread={9}
+        speed={0.09}
         particleBaseSize={100}
         sizeRandomness={0.5}
         moveParticlesOnHover={true}
-        particleHoverFactor={0.5}
+        particleHoverFactor={0.9}
         alphaParticles={true}
         disableRotation={false}
         cameraDistance={25}
@@ -81,39 +81,38 @@ const Hero = () => {
           bgGradient='linear(to-r, #6a11cb, #007bff)'
         />
 
-        <ContentContainer>
-          <ContentFlex>
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <Title as='h1' size={headingSize}>
-                <GradientText>Resultados reais com IA</GradientText>: mais
-                eficiência, mais vendas, menos custos
-              </Title>
+<ContentContainer>
+  <ContentFlex>
+    <MotionDiv
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <Title as='h1' size={headingSize}>
+        <GradientText>Resultados reais com Inteligência Artificial</GradientText>: mais eficiência, mais vendas e custos menores
+      </Title>
 
-              <Subtitle fontSize={subheadingSize}>
-                Criamos automações e agentes de IA que reduzem custos, aumentam
-                suas vendas e otimizam processos. O futuro da sua empresa começa
-                aqui.
-              </Subtitle>
+      <Subtitle fontSize={subheadingSize}>
+        Na <b>Yo Tech</b>, criamos automações e agentes de IA que eliminam tarefas manuais, aumentam suas vendas e tornam sua operação mais ágil e lucrativa. 
+        ➡️ O futuro da sua empresa começa agora.
+      </Subtitle>
 
-              <ButtonsContainer>
-                <ScrollLink
-                  to='contato'
-                  smooth={true}
-                  duration={500}
-                  offset={-80}
-                >
-                  <PrimaryButton variant='primary'>
-                    Agende uma reunião gratuita
-                  </PrimaryButton>
-                </ScrollLink>
-              </ButtonsContainer>
-            </MotionDiv>
-          </ContentFlex>
-        </ContentContainer>
+      <ButtonsContainer>
+        <ScrollLink
+          to='contato'
+          smooth={true}
+          duration={500}
+          offset={-80}
+        >
+          <PrimaryButton variant='primary'>
+            Agende sua reunião gratuita e descubra como a IA pode transformar seu negócio
+          </PrimaryButton>
+        </ScrollLink>
+      </ButtonsContainer>
+    </MotionDiv>
+  </ContentFlex>
+</ContentContainer>
+
       </HeroSection>
     </div>
   )
